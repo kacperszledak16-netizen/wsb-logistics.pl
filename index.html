@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>WSB Logistics</title>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,42 +14,17 @@
             transition: 0.3s;
         }
 
-        /* --- TRYB CIEMNY --- */
-        body.dark {
-            background: #121212;
-            color: #e0e0e0;
-        }
+        /* dark mode */
+        body.dark { background: #121212; color: #e0e0e0; }
+        body.dark header { background: #6d5100; color: white; }
+        body.dark nav { background: #111; }
+        body.dark nav a { color: #e0e0e0; }
+        body.dark nav a:hover { color: #ffd86b; }
+        body.dark section { background: #1e1e1e; }
+        body.dark footer { background: #000; }
+        body.dark .overlay { background: rgba(0,0,0,0.9); }
 
-        body.dark header {
-            background: #6d5100;
-            color: white;
-        }
-
-        body.dark nav {
-            background: #111;
-        }
-
-        body.dark nav a {
-            color: #e0e0e0;
-        }
-
-        body.dark nav a:hover {
-            color: #ffd86b;
-        }
-
-        body.dark section {
-            background: #1e1e1e;
-        }
-
-        body.dark footer {
-            background: #000;
-        }
-
-        body.dark .overlay {
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        /* --- PRZYCISK TRYBU CIEMNEGO --- */
+        /* dark mode button */
         #darkmode-btn {
             position: fixed;
             top: 15px;
@@ -64,69 +38,48 @@
             z-index: 9999;
             transition: 0.3s;
         }
+        body.dark #darkmode-btn { background: #f0c040; color: black; }
 
-        body.dark #darkmode-btn {
-            background: #f0c040;
-            color: black;
-        }
-
-        /* ------------------------------ */
-
-	.gallery {
+        /* gallery */
+        .gallery {
             display: flex;
             overflow-x: auto;
             gap: 10px;
             padding: 10px;
             scroll-behavior: smooth;
         }
-
-        .photo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
+        .photo { text-align: center; margin-bottom: 20px; flex: 0 0 auto; }
         .photo img {
             width: 380px;
             height: auto;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 0.3s;
+            display: block;
         }
-
-        .photo img:hover {
-            transform: scale(1.05);
-        }
+        .photo img:hover { transform: scale(1.05); }
 
         header {
             background: #9f7002;
             color: black;
-            padding: 0px;
+            padding: 0;
             text-align: center;
             padding-bottom: 5px;
         }
-
-        header img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        header img { width: 100%; height: auto; display:block; }
 
         nav {
             background: #333;
             padding: 10px;
             text-align: center;
         }
-
         nav a {
             color: white;
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
         }
-
-        nav a:hover {
-            color: #f0c040;
-        }
+        nav a:hover { color: #f0c040; }
 
         section {
             padding: 20px;
@@ -138,39 +91,25 @@
             transition: 0.3s;
         }
 
-        h2 {
-            border-left: 6px solid #f0c040;
-            padding-left: 10px;
-        }
+        h2 { border-left: 6px solid #f0c040; padding-left: 10px; }
+        .naglowek { font-size: 28px; }
 
-        .naglowek {
-            font-size: 28px;
-        }
-
+        /* overlay (lightbox) using :target */
         .overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
             display: flex;
             justify-content: center;
             align-items: center;
             opacity: 0;
             pointer-events: none;
-            transition: 0.3s;
+            transition: opacity 0.25s ease;
+            z-index: 9998;
         }
-
-        .overlay img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .overlay:target {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        .overlay img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+        .overlay:target { opacity: 1; pointer-events: auto; }
 
         footer {
             margin-top: 30px;
@@ -179,36 +118,37 @@
             text-align: center;
             padding: 15px;
         }
+
+        /* responsiveness */
+        @media (max-width: 420px) {
+            .photo img { width: 260px; }
+        }
     </style>
 </head>
 <body>
 
-<!-- PRZYCISK TRYBU CIEMNEGO -->
+<!-- dark mode button -->
 <button id="darkmode-btn">🌙 Tryb ciemny</button>
 
 <script>
     const btn = document.getElementById("darkmode-btn");
-
-    // Wczytaj zapisany tryb
     if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-        btn.textContent = "☀️ Tryb jasny";
+        document.body.classList.add("dark"); btn.textContent = "☀️ Tryb jasny";
     }
-
-    btn.onclick = () => {
-        document.body.classList.toggle("dark");
-
-        if (document.body.classList.contains("dark")) {
+    btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        if (document.body.classList.contains('dark')) {
             btn.textContent = "☀️ Tryb jasny";
-            localStorage.setItem("theme", "dark");
+            localStorage.setItem("theme","dark");
         } else {
             btn.textContent = "🌙 Tryb ciemny";
-            localStorage.setItem("theme", "light");
+            localStorage.setItem("theme","light");
         }
-    };
+    });
 </script>
 
 <header>
+    <!-- === UWAGA: poprawiony atrybut style (był brakujący cudzysłów) === -->
     <img src="WSB_title.png" alt="WSB LOGISTICS" style="max-width:100%; height:auto; display:block;">
     <p class="naglowek"><strong> PRACE W TOKU /Firma z pasji do wielkich pojazdów i realistycznej symulacji jazdy\ PRACE W TOKU</strong></p>
 </header>
@@ -225,18 +165,7 @@
 
 <section id="firma">
     <h2>Firma WSB LOGISTICS</h2>
-    <p>
-       <strong> Prezes Wujaszek Sławek, Wiceprezes Beksiu86, oraz Wiceprezes Sabcia</strong> - to nasza Firmowa rodzina...
-    </p>
-
-    <h3>Co oferuje nasza firma?</h3>
-    <ul>
-        <li>Pomoc i wsparcie działu IT</li>
-        <li>Miła atmosfera i dobra zabawa</li>
-        <li>Wspólne konwoje</li>
-        <li>Wspólna zabawa i radość z ETS2</li>
-        <li>Firmowe malowania</li>
-    </ul>
+    <p><strong> Prezes Wujaszek Sławek, Wiceprezes Beksiu86, oraz Wiceprezes Sabcia</strong> - to nasza Firmowa rodzina...</p>
 </section>
 
 <section id="modyfikacje">
@@ -257,13 +186,69 @@
     <h2>Galeria</h2>
 
     <div class="gallery">
-        <!-- zdjęcia itd. (nie zmieniam, działa jak było) -->
-        <!-- tu zostawiam bez zmian, bo działa idealnie -->
-        <!-- ... -->
+        <div class="photo">
+            <a href="#img1"><img src="Foto1beks.png" alt="Beksiu86"></a>
+            <p>Beksiu86</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img2"><img src="Foto2beks.png" alt="Beksiu86"></a>
+            <p>Beksiu86</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img3"><img src="Foto3wujaszek.png" alt="Wujaszek"></a>
+            <p>Wujaszek Sławek</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img4"><img src="Foto4trucker.png" alt="TruckerMech"></a>
+            <p>TruckerMech</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img5"><img src="Foto5kiki.png" alt="Kiki"></a>
+            <p>Kiki</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img6"><img src="Foto6premium.png" alt="Premium"></a>
+            <p>Premium</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img7"><img src="Foto7etivohu.png" alt="Etivohu"></a>
+            <p>Etivohu</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img8"><img src="Foto8beks.png" alt="Beksiu86"></a>
+            <p>Beksiu86</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img9"><img src="Foto9beks.png" alt="Beksiu86"></a>
+            <p>Beksiu86</p>
+        </div>
+
+        <div class="photo">
+            <a href="#img10"><img src="Foto10premium.png" alt="Premium"></a>
+            <p>Premium</p>
+        </div>
     </div>
 
-    <!-- Overlaye (również bez zmian) -->
-    <!-- ... -->
+    <!-- overlayy (lightbox) -->
+    <div id="img1" class="overlay"><a href="#"><img src="Foto1beks.png" alt="Beksiu86"></a></div>
+    <div id="img2" class="overlay"><a href="#"><img src="Foto2beks.png" alt="Beksiu86"></a></div>
+    <div id="img3" class="overlay"><a href="#"><img src="Foto3wujaszek.png" alt="Wujaszek"></a></div>
+    <div id="img4" class="overlay"><a href="#"><img src="Foto4trucker.png" alt="TruckerMech"></a></div>
+    <div id="img5" class="overlay"><a href="#"><img src="Foto5kiki.png" alt="Kiki"></a></div>
+    <div id="img6" class="overlay"><a href="#"><img src="Foto6premium.png" alt="Premium"></a></div>
+    <div id="img7" class="overlay"><a href="#"><img src="Foto7etivohu.png" alt="Etivohu"></a></div>
+    <div id="img8" class="overlay"><a href="#"><img src="Foto8beks.png" alt="Beksiu86"></a></div>
+    <div id="img9" class="overlay"><a href="#"><img src="Foto9beks.png" alt="Beksiu86"></a></div>
+    <div id="img10" class="overlay"><a href="#"><img src="Foto10premium.png" alt="Premium"></a></div>
+
 </section>
 
 <section id="Zarzad">

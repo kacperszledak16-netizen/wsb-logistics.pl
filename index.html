@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WSB LOGISTICS</title>
+    <title></title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,12 +11,36 @@
             padding: 0;
             background: #f2f2f2;
         }
+		.gallery {
+    display: flex;              
+    overflow-x: auto;          
+    gap: 10px;                  
+    padding: 10px;
+    scroll-behavior: smooth;    
+}
+.photo {
+    text-align: center; /* wycentrowanie podpisu i zdjęcia */
+    margin-bottom: 20px;
+}
+.photo img {
+    width: 380px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.photo img:hover {
+    transform: scale(1.05);    
+}
 
         header {
-            background: #1f1f1f;
-            color: white;
-            padding: 20px;
+            background: #9f7002;
+            color: black;
+            padding: 0px;
             text-align: center;
+			padding-bottom: 5px; 
+						
         }
 
         nav {
@@ -55,7 +79,35 @@
             border-left: 6px solid #f0c040;
             padding-left: 10px;
         }
+		
+		.naglowek {
+			font-size: 28px;
+		}
+		.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; /* niewidoczne i nieklikalne */
+    transition: 0.3s;
+}
 
+.overlay img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.overlay:target {
+    opacity: 1;
+    pointer-events: auto; /* po kliknięciu aktywne */
+}
+		
         .truck-gallery {
             display: flex;
             flex-wrap: wrap;
@@ -84,17 +136,17 @@
 
 <header>
     <img src="WSB_title.png" alt="WSB LOGISTICS">
-    <p>PRACE W TOKU \Firma z pasji do wielkich pojazdów i realistycznej symulacji jazdy /PRACE W TOKU</p>
+    <p class="naglowek"><strong> PRACE W TOKU /Firma z pasji do wielkich pojazdów i realistycznej symulacji jazdy\ PRACE W TOKU</strong></p>
 </header>
 
 <nav>
     <a href="#firma">Firma WSB</a>
     <a href="#galeria">Galeria</a>
 	<a href="#modyfikacje">Modyfikacje</a>
-	<a href="#linki">Linki</a>
 	<a href="https://trucksbook.eu/company/107942">TrucksBook</a>
 	<a href="https://discord.com/invite/BB6BjbWMB6">Discord</a>
 	<a href="https://www.facebook.com/groups/1117368809225137/">Facebook</a>
+	<a href="#Zarzad">Zarząd</a>
 </nav>
 
 <section id="firma">
@@ -104,57 +156,160 @@
 Nasza historia rozpoczęła się 29.01.2021 dwóch ultra szalonych pasjonatów ETS2, którzy wzajemnie i nieustannie zarażają siebie i wszystkich wokół pozytywną energią otwiera swoją perełkę - FIRMĘ "WSB LOGOSTICS". Swoim profesjonalizmem i rzetelnością zdobyliśmy zaufanie Firmy ADAR, z którą rozpoczęliśmy współpracę.
 Również jesteś wolnym strzelcem, dla którego ETS 2 to przyjemna odskocznia od codziennej rutyny i obowiązków? Jeśli TAK to trafiłeś w dziesiątkę. Zapraszamy Cię do naszej ETSowej rodziny w której możesz liczyć na nasze dobre słowo, poprawę humoru i wspólne zajebiste nabijanie kilometrów jazdą symulacyjną.
     </p>
-
+	
     <h3>Co oferuje nasza firma?</h3>
     <ul>
-        <li>co</li>
-        <li>sobie</li>
-        <li>zażyczysz</li>
-        <li>będzie</li>
-        <li>tutaj</li>
-        <li>wstawione</li>
-    </ul>
-
+        <li>Pomoc i wsparcie działu IT</li>
+        <li>Miła atmosfera i dobra zabawa</li>
+        <li>Wspólne konwoje</li>
+        <li>Wspólna zabawa i radość z ETS2</li>
+        <li>Firmowe malowania</li>
+	</ul>
     </section>
-
-<section id="galeria">
-    <h2>Galeria</h2>
-    <div class="truck-gallery">
-        <div>
-            <h3>Foto1</h3>
-            <p>Foto1</p>
-        </div>
-        <div>
-            <h3>Foto2</h3>
-            <p>Foto2</p>
-        </div>
-        <div>
-            <h3>Foto3</h3>
-            <p>Foto3</p>
-        </div>
-    </div>
-</section>
+	
 <section id="modyfikacje">
     <h2>Posiadamy również własna paczkę modyfikacji </h2>
     <p>
       W skład Modyfikacji wchodzą:
 	   </p>
     <ul>
-	        <li>Firmowe malowania</li>
-        <li>Firmowe dodatki (Kołdry, Poduszki,) </li>
-        <li>I wiele innych</li>
-		<li>Customowe modele na zamówienie</li> 
-		 <a href= "https://steamcommunity.com/sharedfiles/filedetails/?id=3293083859&searchtext=WSB+">Kliknij tutaj aby przekierować na steam</a></ul>
+	    <li>Firmowe malowania</li>
+       	<li>Customowe modele na zamówienie</li> 
+		<li>I wiele innych</li>
+		<li>Poniżej linki :D</li> 
+	</ul>
+			<li>	<a href= "https://steamcommunity.com/sharedfiles/filedetails/?id=2792773664&searchtext=WSB">WBS LOGISTICS SKIN</a></li>
+			<li>	<a href= "https://steamcommunity.com/sharedfiles/filedetails/?id=3293083859&searchtext=WSB+">WBS Mod 2.0</a></li>
     <p>
         Zapraszamy do korzystania.
     </p>
 </section>
 
+<section id="galeria">
+    <h2>Galeria</h2>
+	<div class="gallery">
+    <div class="photo">
 	
+        <a href="#img1">
+            <img src="Foto1beks.png" alt="Beksiu86">
+        </a>
+        <p>Beksiu86</p>
+    </div>
+	
+    <div class="photo">
+        <a href="#img2">
+            <img src="Foto2beks.png" alt="Beksiu86">
+        </a>
+        <p>Beksiu86</p>
+    </div>
+	
+    <div class="photo">
+        <a href="#img3">
+            <img src="Foto3wujaszek.png" alt="Wujaszek">
+        </a>
+        <p>Wujaszek Sławek</p>
+    </div>
+
+	<div class="photo">
+        <a href="#img4">
+            <img src="Foto4trucker.png" alt="TruckerMech">
+        </a>
+        <p>TruckerMech</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img5">
+            <img src="Foto5kiki.png" alt="Kiki">
+        </a>
+        <p>Kiki</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img6">
+            <img src="Foto6premium.png" alt="Premium">
+        </a>
+        <p>Premium</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img7">
+            <img src="Foto7etivohu.png" alt="etivohu">
+        </a>
+        <p>Etivohu</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img8">
+            <img src="Foto8beks.png" alt="Beksiu86">
+        </a>
+        <p>Beksiu86</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img9">
+            <img src="Foto9beks.png" alt="Beksiu86">
+        </a>
+        <p>Beksiu86</p>
+    </div>
+	
+	<div class="photo">
+        <a href="#img10">
+            <img src="Foto10premium.png" alt="Premium">
+        </a>
+        <p>Premium</p>
+    </div>
+
+
+<div id="img1" class="overlay">
+    <a href="#"><img src="Foto1beks.png" alt="Beksiu86"></a>
+</div>
+
+<div id="img2" class="overlay">
+    <a href="#"><img src="Foto2beks.png" alt="Beksiu86"></a>
+</div>
+
+<div id="img3" class="overlay">
+    <a href="#"><img src="Foto3wujaszek.png" alt="Wujaszek"></a>
+</div>
+
+<div id="img4" class="overlay">
+	<a href="#"><img src="Foto4trucker.png" alt="TruckerMech"></a>
+</div>
+
+<div id="img5" class="overlay">
+	<a href="#"><img src="Foto5kiki.png" alt="Kiki"></a>
+</div>
+
+<div id="img6" class="overlay">
+	<a href="#"><img src="Foto6premium.png" alt="Premium"></a>
+</div>
+
+<div id="img7" class="overlay">
+	<a href="#"><img src="Foto7etivohu.png" alt="Etivohu"></a>
+</div>
+
+<div id="img8" class="overlay">
+	<a href="#"><img src="Foto8beks.png" alt="Beksiu86"></a>
+</div>
+
+<div id="img9" class="overlay">
+	<a href="#"><img src="Foto9beks.png" alt="Beksiu86"></a>
+</div>
+
+<div id="img10" class="overlay">
+	<a href="#"><img src="Foto10premium.png" alt="Premium"></a>
+</div>
+
+    
+</section>
+
+<section id="Zarzad"> 
+<h2>Zarząd WSB LOGISTICS to filar firmy, który tworzą:</h2>
+<img src="Zarzad.png" width="575" height="259" alt="Zarzad">
+	</section>
 	<footer>
     <p>© 2025 WSB Logistics | Made by xGasparr</p>
 </footer>
 
 </body>
 </html>
-

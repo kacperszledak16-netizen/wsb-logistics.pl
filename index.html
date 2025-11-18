@@ -209,14 +209,7 @@ nav a:hover { color: #f0c040; }
         }
     });
 </script>
-<script>
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
 
-    toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
-</script>
 
 <header>
     <!-- === UWAGA: poprawiony atrybut style (był brakujący cudzysłów) === -->
@@ -368,6 +361,13 @@ W Podaniu zamieść informację:<br><br>
 <footer>
     <img src="WSB logo.png" width="30"height="auto"><p>2025 WSB Logistics | Made by xGasparr</p>
 </footer>
+<script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+</script>
 </body>
 </html>

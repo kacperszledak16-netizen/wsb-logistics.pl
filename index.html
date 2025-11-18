@@ -126,6 +126,67 @@
         @media (max-width: 420px) {
             .photo img { width: 260px; }
         }
+        /* --- PODSTAWOWY NAV (zostaje jak jest) --- */
+
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover { color: #f0c040; }
+
+/* --- PRZYCISK MENU (widoczny tylko na telefonie) --- */
+.menu-toggle {
+    display: none;
+    background: #f0c040;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* --- Styl rozwijanego menu na telefonie --- */
+@media (max-width: 720px) {
+
+    nav {
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none; /* ukryte menu */
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 10px;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 8px 0;
+    }
+
+    .nav-links.open {
+        display: flex; /* pokazanie menu */
+    }
+}
     </style>
 </head>
 <body>
@@ -148,6 +209,14 @@
         }
     });
 </script>
+<script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggleBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+</script>
 
 <header>
     <!-- === UWAGA: poprawiony atrybut style (był brakujący cudzysłów) === -->
@@ -156,18 +225,19 @@
 </header>
 
 <nav>
-    <a href="#firma">Firma WSB</a>
-    <a href="#rekrutacja">Rekrutacjua</a>
-    <a href="#modyfikacje">Modyfikacje</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#Zarzad">Zarząd</a>
-    <a href="https://trucksbook.eu/company/107942">TrucksBook</a>
-    <a href="https://discord.com/invite/BB6BjbWMB6">Discord</a>
-    <a href="https://www.facebook.com/groups/1117368809225137/">Facebook</a>
-    
-    
-
+    <button class="menu-toggle">☰ MENU</button>
+    <div class="nav-links">
+        <a href="#firma">Firma WSB</a>
+        <a href="#rekrutacja">Rekrutacja</a>
+        <a href="#modyfikacje">Modyfikacje</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#Zarzad">Zarząd</a>
+        <a href="https://trucksbook.eu/company/107942">TrucksBook</a>
+        <a href="https://discord.com/invite/BB6BjbWMB6">Discord</a>
+        <a href="https://www.facebook.com/groups/1117368809225137/">Facebook</a>
+    </div>
 </nav>
+
 
 <section id="firma">
     <h2>Firma WSB LOGISTICS</h2>

@@ -1,381 +1,60 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>WSB Logistics</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAGE NOT FOUND</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z napisem i GIF-em</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Globalne style */
+        * {
             margin: 0;
             padding: 0;
-            background: #f2f2f2;
-            color: black;
-            transition: 0.3s;
+            box-sizing: border-box;
         }
 
-        /* dark mode */
-        body.dark { background: #121212; color: #e0e0e0; }
-        body.dark header { background: #6d5100; color: white; }
-        body.dark nav { background: #111; }
-        body.dark nav a { color: #e0e0e0; }
-        body.dark nav a:hover { color: #ffd86b; }
-        body.dark section { background: #1e1e1e; }
-        body.dark footer { background: #000; }
-        body.dark .overlay { background: rgba(0,0,0,0.9); }
-
-        /* dark mode button */
-        #darkmode-btn {
-            position: fixed;
-            bottom: 15px;
-            right: 15px;
-            padding: 10px 15px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            z-index: 9999;
-            transition: 0.3s;
-        }
-        body.dark #darkmode-btn { background: #f0c040; color: black; }
-
-        /* gallery */
-        .gallery {
-            display: flex;
-            overflow-x: auto;
-            gap: 10px;
-            padding: 10px;
-            scroll-behavior: smooth;
-        }
-        .photo { text-align: center; margin-bottom: 20px; flex: 0 0 auto; }
-        .photo img {
-            width: 380px;
-            height: auto;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            display: block;
-        }
-        .photo img:hover { transform: scale(1.05); }
-
-        header {
-            background: #9f7002;
-            color: black;
-            padding: 0;
-            text-align: center;
-            padding-bottom: 5px;
-        }
-        header img { width: 100%; height: auto; display:block; }
-
-        nav {
-            background: #333;
-            padding: 10px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 9999;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover { color: #f0c040; }
-
-        section {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            margin-top: 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        h2 { border-left: 6px solid #f0c040; padding-left: 10px; }
-        .naglowek { font-size: 28px; }
-
-        /* overlay (lightbox) using :target */
-        .overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0c040;
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            z-index: 9998;
-        }
-        .overlay img { max-width: 90%; max-height: 90%; border-radius: 8px; }
-        .overlay:target { opacity: 1; pointer-events: auto; }
-
-        footer {
-            margin-top: 30px;
-            background: #1f1f1f;
-            color: white;
+            height: 100vh;
             text-align: center;
-            padding: 15px;
+            flex-direction: column;
         }
 
-        /* responsiveness */
-        @media (max-width: 420px) {
-            .photo img { width: 260px; }
+        /* Styl dla napisu */
+        .title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px; /* Odstęp między napisem a GIF-em */
         }
-        /* --- PODSTAWOWY NAV (zostaje jak jest) --- */
 
-nav {
-    background: #333;
-    padding: 10px;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-}
-
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover { color: #f0c040; }
-
-/* --- PRZYCISK MENU (widoczny tylko na telefonie) --- */
-.menu-toggle {
-    display: none;
-    background: #f0c040;
-    color: black;
-    font-weight: bold;
-    border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-/* --- Styl rozwijanego menu na telefonie --- */
-@media (max-width: 720px) {
-
-    nav {
-        text-align: left;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-links {
-        display: none; /* ukryte menu */
-        flex-direction: column;
-        gap: 10px;
-        padding-left: 10px;
-    }
-
-    .nav-links a {
-        display: block;
-        margin: 8px 0;
-    }
-
-    .nav-links.open {
-        display: flex; /* pokazanie menu */
-    }
-}
+        /* Styl dla GIF-a */
+        .gif-container img {
+            width: 300px; /* Możesz dostosować szerokość GIF-a */
+            height: auto;
+        }
     </style>
 </head>
 <body>
-
-<!-- dark mode button -->
-<button id="darkmode-btn">🌙 Tryb ciemny</button>
-<script>
-    const btn = document.getElementById("darkmode-btn");
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark"); btn.textContent = "☀️ Tryb jasny";
-    }
-    btn.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        if (document.body.classList.contains('dark')) {
-            btn.textContent = "☀️ Tryb jasny";
-            localStorage.setItem("theme","dark");
-        } else {
-            btn.textContent = "🌙 Tryb ciemny";
-            localStorage.setItem("theme","light");
-        }
-    });
-</script>
-
-
-<header>
-    <!-- === UWAGA: poprawiony atrybut style (był brakujący cudzysłów) === -->
-    <img src="WSB_title.png" alt="WSB LOGISTICS" style="max-width:100%; height:auto; display:block;">
-    <p class="naglowek"><strong> PRACE W TOKU /Firma z pasji do wielkich pojazdów i realistycznej symulacji jazdy\ PRACE W TOKU</strong></p>
-</header>
-
-<nav>
-    <button class="menu-toggle">☰ MENU</button>
-    <div class="nav-links">
-        <a href="#firma">Firma WSB</a>
-        <a href="#rekrutacja">Rekrutacja</a>
-        <a href="#modyfikacje">Modyfikacje</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#Zarzad">Zarząd</a>
-        <a href="https://trucksbook.eu/company/107942" target="blank" rel="noopener noreferrer">TrucksBook</a>
-        <a href="https://discord.com/invite/BB6BjbWMB6" target="blank" rel="noopener noreferrer">Discord</a>
-        <a href="https://www.facebook.com/groups/1117368809225137/" target="blank" rel="noopener noreferrer">Facebook</a>
+    <div class="title">
+        <h2>Strona WSB LOGISTICS w trakcie konstrukcji</h2>
+    </div>  
+    <div class="gif-container">
+        <img src="truckload.gif" alt="Loading">
     </div>
-</nav>
+</body>
+</html>
 
-
-<section id="firma">
-    <h2>Firma WSB LOGISTICS</h2>
-    <p><strong> Prezes Wujaszek Sławek, Wiceprezes Beksiu86 oraz Wiceprezes Sabcia</strong> - to nasza Firmowa rodzina. Tak! Bo właśnie o to u nas chodzi - rodzinne podejście polegające na zaufaniu, wierze w swoje kompetencje i umiejętności, nieustającym wsparciu i wzajnym doskonaleniu się.
-Nasza historia rozpoczęła się 29.01.2021 dwóch ultra szalonych pasjonatów ETS2, którzy wzajemnie i nieustannie zarażają siebie i wszystkich wokół pozytywną energią otwiera swoją perełkę - FIRMĘ "WSB LOGOSTICS". Swoim profesjonalizmem i rzetelnością zdobyliśmy zaufanie Firmy ADAR, z którą rozpoczęliśmy współpracę.
-Również jesteś wolnym strzelcem, dla którego ETS 2 to przyjemna odskocznia od codziennej rutyny i obowiązków? Jeśli TAK to trafiłeś w dziesiątkę. Zapraszamy Cię do naszej ETSowej rodziny w której możesz liczyć na nasze dobre słowo, poprawę humoru i wspólne zajebiste nabijanie kilometrów jazdą symulacyjną.</p>
-<a href="https://info.flagcounter.com/W8BI" style="pointer-events: none; cursor: default;">
-  <img src="https://s01.flagcounter.com/count2/W8BI/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
-</a>
-</section>
-
-<section id="rekrutacja">
-<h2>Rekrutacja</h2>
-Jeśli masz ochotę do nas dołączyć - wystarczy, że:
-<p style="text-align:center">
-1. Wyślesz podanie.<br><br>
-2. Masz konto na Discordzie oraz sprawny mikrofon.<br><br>
-3. Masz konto na TrucksBooku.<br><br>
-4. Masz ochotę jeździć z prędkością nie większą niż 95 km/h<br><br>
-5. Szanujesz innych<br><br>
-</p>
-<p style="text-align:center">
-<strong>
-W Podaniu zamieść informację:<br><br>
-
-1. Ile masz lat ?<br><br>
-
-2. Jaki masz nick na TrucksBook?<br><br>
-
-3. Jaki masz nick na Discordzie ?<br><br>
-
-4. Ile masz wyjeżdżonych godzin w ETS/ATS ?<br><br>
-
-5. Ile posiadasz DLC mapowych (liczba)?<br><br>
-
-6. Ile jesteś w stanie przejechać kilometrów w miesiącu?<br><br>
-
-7. Dlaczego chcesz dołączyć do firmy WSB LOGISTICS?<br><br>
-</strong>
-</p>
-</section>
-
-<section id="modyfikacje">
-    <h2>Posiadamy również własna paczkę modyfikacji</h2>
-    <ul>
-        <li>Firmowe malowania</li>
-        <li>Customowe modele na zamówienie</li>
-        <li>I wiele innych</li>
-    </ul>
-    <p>Poniżej linki:</p>
-    <ul>
-        <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2792773664&searchtext=WSB" target="blank" rel="noopener noreferrer">WBS LOGISTICS SKIN</a></li>
-        <li><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3293083859&searchtext=WSB+" target="blank" rel="noopener noreferrer">WBS Mod 2.0</a></li>
-    </ul>
-</section>
-
-<section id="galeria">
-    <h2>Galeria</h2>
-
-    <div class="gallery">
-        <div class="photo">
-            <a href="#img1"><img src="Foto1beks.png" alt="Beksiu86"></a>
-            <p>Beksiu86</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img2"><img src="Foto2beks.png" alt="Beksiu86"></a>
-            <p>Beksiu86</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img3"><img src="Foto3wujaszek.png" alt="Wujaszek"></a>
-            <p>Wujaszek Sławek</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img4"><img src="Foto4trucker.png" alt="TruckerMech"></a>
-            <p>TruckerMech</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img5"><img src="Foto5kiki.png" alt="Kiki"></a>
-            <p>Kiki</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img6"><img src="Foto6premium.png" alt="Premium"></a>
-            <p>Premium</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img7"><img src="Foto7etivohu.png" alt="Etivohu"></a>
-            <p>Etivohu</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img8"><img src="Foto8beks.png" alt="Beksiu86"></a>
-            <p>Beksiu86</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img9"><img src="Foto9beks.png" alt="Beksiu86"></a>
-            <p>Beksiu86</p>
-        </div>
-
-        <div class="photo">
-            <a href="#img10"><img src="Foto10premium.png" alt="Premium"></a>
-            <p>Premium</p>
-        </div>
-    </div>
-
-    <!-- overlayy (lightbox) -->
-    <div id="img1" class="overlay"><a href="#"><img src="Foto1beks.png" alt="Beksiu86"></a></div>
-    <div id="img2" class="overlay"><a href="#"><img src="Foto2beks.png" alt="Beksiu86"></a></div>
-    <div id="img3" class="overlay"><a href="#"><img src="Foto3wujaszek.png" alt="Wujaszek"></a></div>
-    <div id="img4" class="overlay"><a href="#"><img src="Foto4trucker.png" alt="TruckerMech"></a></div>
-    <div id="img5" class="overlay"><a href="#"><img src="Foto5kiki.png" alt="Kiki"></a></div>
-    <div id="img6" class="overlay"><a href="#"><img src="Foto6premium.png" alt="Premium"></a></div>
-    <div id="img7" class="overlay"><a href="#"><img src="Foto7etivohu.png" alt="Etivohu"></a></div>
-    <div id="img8" class="overlay"><a href="#"><img src="Foto8beks.png" alt="Beksiu86"></a></div>
-    <div id="img9" class="overlay"><a href="#"><img src="Foto9beks.png" alt="Beksiu86"></a></div>
-    <div id="img10" class="overlay"><a href="#"><img src="Foto10premium.png" alt="Premium"></a></div>
-
-</section>
-
-<section id="Zarzad">
-    <h2>Zarząd WSB LOGISTICS to filar firmy, który tworzą:</h2>
-    <img src="Zarzad.png" alt="Zarzad" style="max-width:100%; height:auto; display:block;">
-        <p>Od prawej: 
-          <li>Prezes Wujaszek Sławek</li>
-          <li>Prezes Sabcia</li>
-          <li>Prezes Beksiu86</li>
-        </p>
-</section>
-
-<footer>
-    <img src="WSB logo.png" width="30"height="auto"><p>2025 WSB Logistics | Made by xGasparr</p>
-</footer>
-<script>
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    toggleBtn.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-    });
-</script>
 </body>
 </html>

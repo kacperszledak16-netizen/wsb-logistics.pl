@@ -47,13 +47,7 @@
     border-radius: 12px;
   }
 
-  /* Śnieg */
-  .snowflake {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.8;
+  
   }
 </style>
 </head>
@@ -79,46 +73,62 @@
 </footer>
 
 <script>
-  // --- Konfiguracja śniegu ---
-  const SNOW_COUNT = 150; // liczba płatków
-  const minSize = 2;      // minimalny rozmiar px
-  const maxSize = 6;      // maksymalny rozmiar px
-  const minSpeed = 5;     // minimalna prędkość px/frame
-  const maxSpeed = 15;     // maksymalna prędkość px/frame
+(function() {
+  // --- Dodaj CSS dla płatków ---
+  const style = document.createElement('style');
+  style.textContent = `
+    .snowflake {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // --- Konfiguracja ---
+  const SNOW_COUNT = 200;
+  const minSize = 2;
+  const maxSize = 8;
+  const minSpeed = 1;
+  const maxSpeed = 5;
 
   for(let i=0; i<SNOW_COUNT; i++){
     const snow = document.createElement('div');
     snow.classList.add('snowflake');
 
-    // losowy rozmiar
-    const size = Math.random() * (maxSize-minSize) + minSize;
+    // Losowy rozmiar i przezroczystość
+    const size = Math.random() * (maxSize - minSize) + minSize;
     snow.style.width = size + 'px';
     snow.style.height = size + 'px';
+    snow.style.opacity = Math.random() * 0.5 + 0.5; // 0.5 - 1
 
-    // losowa pozycja X
+    // Losowa pozycja startowa
     snow.style.left = Math.random() * window.innerWidth + 'px';
-    // start nad ekranem
-    snow.style.top = -10 - Math.random()*200 + 'px';
+    snow.style.top = -10 - Math.random() * 300 + 'px';
 
     document.body.appendChild(snow);
 
-    // losowa prędkość
-    const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+    // Prędkość zależna od rozmiaru (małe szybciej, duże wolniej)
+    const speed = maxSpeed - size/2 + Math.random();
 
-    // funkcja spadania
-    function fall() {
+    // Ruch w bok (wir)
+    const swayAmplitude = Math.random() * 3 + 1; // 1-4 px
+    const swayFrequency = Math.random() * 0.05 + 0.01; // różne częstotliwości
+
+    (function fall() {
       let top = parseFloat(snow.style.top);
       if(top < window.innerHeight){
-        // lekki ruch na boki, aby wyglądało naturalnie
-        const sway = Math.sin(top/50) * 1.5;
+        const sway = Math.sin(top * swayFrequency) * swayAmplitude;
         snow.style.top = top + speed + 'px';
         snow.style.left = parseFloat(snow.style.left) + sway + 'px';
         requestAnimationFrame(fall);
       }
-      // po osiągnięciu dołu płatek pozostaje na miejscu
-    }
-    fall();
+      // po osiągnięciu dołu pozostaje w miejscu
+    })();
   }
+})();
 </script>
 
 </body>

@@ -79,18 +79,18 @@
   style.textContent = `
     .snowflake {
       position: absolute;
-      background: white;
-      border-radius: 50%;
+      font-size: 12px;
       pointer-events: none;
       z-index: 9999;
+      user-select: none;
     }
   `;
   document.head.appendChild(style);
 
   // --- Konfiguracja ---
-  const SNOW_COUNT = 200;
-  const minSize = 2;
-  const maxSize = 8;
+  const SNOW_COUNT = 150;
+  const minSize = 12;  // minimalna wielkość font-size
+  const maxSize = 24;  // maksymalna wielkość font-size
   const minSpeed = 1;
   const maxSpeed = 5;
 
@@ -98,24 +98,26 @@
     const snow = document.createElement('div');
     snow.classList.add('snowflake');
 
-    // Losowy rozmiar i przezroczystość
+    // Losowy rozmiar fontu
     const size = Math.random() * (maxSize - minSize) + minSize;
-    snow.style.width = size + 'px';
-    snow.style.height = size + 'px';
-    snow.style.opacity = Math.random() * 0.5 + 0.5; // 0.5 - 1
+    snow.style.fontSize = size + 'px';
+    snow.style.opacity = Math.random() * 0.5 + 0.5;
 
     // Losowa pozycja startowa
     snow.style.left = Math.random() * window.innerWidth + 'px';
     snow.style.top = -10 - Math.random() * 300 + 'px';
 
+    // Ikona śnieżki
+    snow.textContent = '❄'; // możesz zamienić na ✻ lub inną
+
     document.body.appendChild(snow);
 
     // Prędkość zależna od rozmiaru (małe szybciej, duże wolniej)
-    const speed = maxSpeed - size/2 + Math.random();
+    const speed = maxSpeed - size/10 + Math.random();
 
     // Ruch w bok (wir)
-    const swayAmplitude = Math.random() * 3 + 1; // 1-4 px
-    const swayFrequency = Math.random() * 0.05 + 0.01; // różne częstotliwości
+    const swayAmplitude = Math.random() * 3 + 1; 
+    const swayFrequency = Math.random() * 0.05 + 0.01;
 
     (function fall() {
       let top = parseFloat(snow.style.top);

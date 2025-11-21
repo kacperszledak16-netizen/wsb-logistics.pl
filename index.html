@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stały śnieg</title>
+<title>Prosty śnieg</title>
 <style>
   body {
     margin: 0;
     height: 100vh;
     background: #1e3c72;
-    position: relative;
     overflow: hidden;
+    position: relative;
   }
 
   .snowflake {
     position: absolute;
     background: white;
     border-radius: 50%;
-    opacity: 0.8;
     pointer-events: none;
   }
 </style>
@@ -25,27 +24,35 @@
 <body>
 
 <script>
-  const SNOW_COUNT = 100; // ile kropek
-  const maxSize = 6; // maksymalny rozmiar kropki
-  const minSize = 2; // minimalny rozmiar
+  const SNOW_COUNT = 100; // liczba kropek
+  const maxSize = 6;      // maksymalny rozmiar
+  const minSize = 2;      // minimalny rozmiar
 
-  for(let i=0; i<SNOW_COUNT; i++){
+  for (let i = 0; i < SNOW_COUNT; i++) {
     const snow = document.createElement('div');
     snow.classList.add('snowflake');
 
-    // losowa pozycja X
-    const x = Math.random() * window.innerWidth;
-    // losowa pozycja Y
-    const y = Math.random() * window.innerHeight;
-    // losowy rozmiar
-    const size = Math.random() * (maxSize-minSize) + minSize;
-
-    snow.style.left = x + 'px';
-    snow.style.top = y + 'px';
+    const size = Math.random() * (maxSize - minSize) + minSize;
     snow.style.width = size + 'px';
     snow.style.height = size + 'px';
+    snow.style.left = Math.random() * window.innerWidth + 'px';
+    snow.style.top = '-10px'; // start nad ekranem
 
     document.body.appendChild(snow);
+
+    // losowa prędkość dla każdej kropki
+    const speed = Math.random() * 2 + 1; // 1px – 3px na klatkę
+
+    // animacja spadania
+    function fall() {
+      const top = parseFloat(snow.style.top);
+      if (top < window.innerHeight) {
+        snow.style.top = top + speed + 'px';
+        requestAnimationFrame(fall);
+      } 
+      // gdy spadnie do końca, pozostaje na dole (nie resetuje się)
+    }
+    fall();
   }
 </script>
 

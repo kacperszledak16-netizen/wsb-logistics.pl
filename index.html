@@ -3,133 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Śnieżna strona</title>
+<title>Stały śnieg</title>
 <style>
   body {
     margin: 0;
-    font-family: sans-serif;
-    background: linear-gradient(to bottom, #1e3c72, #2a5298);
-    color: #fff;
-    overflow-x: hidden;
-    min-height: 100vh;
+    height: 100vh;
+    background: #1e3c72;
     position: relative;
+    overflow: hidden;
   }
 
-  /* --- Śnieg padający --- */
   .snowflake {
-    position: fixed;
-    top: -10px;
-    color: white;
-    font-size: 10px;
-    user-select: none;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.8;
-  }
-
-  /* --- Kupki śniegu na elementach --- */
-  .snow-top {
-    position: relative;
-  }
-  .snow-top::after {
-    content: "❄❄❄";
     position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
     pointer-events: none;
-    opacity: 0.9;
-  }
-
-  /* --- Przykładowe elementy strony --- */
-  header, section, footer {
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  section {
-    margin: 40px auto;
-    max-width: 800px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 12px;
-    position: relative;
-  }
-
-  button, img {
-    margin: 20px;
-  }
-
-  button {
-    padding: 10px 18px;
-    border-radius: 8px;
-    border: none;
-    background: #06b6d4;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  img {
-    max-width: 100%;
-    border-radius: 12px;
-    display: block;
-    margin: 0 auto;
   }
 </style>
 </head>
 <body>
 
-<header class="snow-top">
-  <h1>Witamy na zimowej stronie ❄️</h1>
-</header>
-
-<section class="snow-top">
-  <h2>O nas</h2>
-  <p>To jest przykładowa sekcja. Wygląda jakby miała śnieg na górze!</p>
-  <button class="snow-top">Kliknij mnie</button>
-</section>
-
-<section class="snow-top">
-  <h2>Galeria</h2>
-  <img class="snow-top" src="https://via.placeholder.com/600x300.png?text=Zima" alt="Obrazek zimowy">
-</section>
-
-<footer class="snow-top">
-  <p>© 2025 Śnieżna strona</p>
-</footer>
-
 <script>
-  // --- Padający śnieg ---
-  const SNOW_COUNT = 80;
+  const SNOW_COUNT = 100; // ile kropek
+  const maxSize = 6; // maksymalny rozmiar kropki
+  const minSize = 2; // minimalny rozmiar
 
-  function random(min,max){ return Math.random()*(max-min)+min; }
-
-  for(let i=0;i<SNOW_COUNT;i++){
+  for(let i=0; i<SNOW_COUNT; i++){
     const snow = document.createElement('div');
     snow.classList.add('snowflake');
-    snow.textContent = '❄';
-    snow.style.left = random(0,window.innerWidth)+'px';
-    snow.style.fontSize = random(8,20)+'px';
-    snow.style.opacity = random(0.3,0.9);
+
+    // losowa pozycja X
+    const x = Math.random() * window.innerWidth;
+    // losowa pozycja Y
+    const y = Math.random() * window.innerHeight;
+    // losowy rozmiar
+    const size = Math.random() * (maxSize-minSize) + minSize;
+
+    snow.style.left = x + 'px';
+    snow.style.top = y + 'px';
+    snow.style.width = size + 'px';
+    snow.style.height = size + 'px';
+
     document.body.appendChild(snow);
-
-    const speed = random(30,70);
-    let posY = -20;
-    let posX = parseFloat(snow.style.left);
-
-    function fall(){
-      posY += speed;
-      posX += Math.sin(posY/50);
-      snow.style.top = posY+'px';
-      snow.style.left = posX+'px';
-      if(posY>window.innerHeight+20){
-        posY=-20;
-        posX=random(0,window.innerWidth);
-      }
-      requestAnimationFrame(fall);
-    }
-    fall();
   }
 </script>
 

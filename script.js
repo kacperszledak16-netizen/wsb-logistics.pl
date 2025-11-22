@@ -48,6 +48,3 @@ gallery.forEach(img => {
 lightbox.addEventListener("click", ()=>{
     lightbox.classList.remove("active");
 });
-
-})();
-

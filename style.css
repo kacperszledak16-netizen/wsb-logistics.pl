@@ -58,6 +58,15 @@ header p {
     margin-top: 10px;
     font-size: 19px;
 }
+/*snieg*/
+.snowflake {
+  position: absolute;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 9999999;
+  user-select: none;
+}
+
 
 /* -------------------- NAV -------------------- */
 nav {
@@ -238,3 +247,6 @@ section:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
+
+
+   

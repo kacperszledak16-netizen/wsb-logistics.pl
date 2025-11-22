@@ -58,14 +58,16 @@ header p {
     margin-top: 10px;
     font-size: 19px;
 }
-/*snieg*/
 .snowflake {
-  position: absolute;
+  position: fixed;          /* śnieg zawsze nad całą stroną */
+  top: 0;
+  left: 0;
+  pointer-events: none;     /* nie przeszkadza w klikaniu */
   font-size: 12px;
-  pointer-events: none;
-  z-index: 9999999;
+  z-index: 999999;          /* nad wszystkim, także nad nav */
   user-select: none;
 }
+
 
 
 /* -------------------- NAV -------------------- */
@@ -250,3 +252,4 @@ section:hover{
 
 
    
+

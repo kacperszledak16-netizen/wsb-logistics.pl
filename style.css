@@ -58,15 +58,20 @@ header p {
     margin-top: 10px;
     font-size: 19px;
 }
-/*snieg*/
+/* Śnieg pod treścią, ale nad tłem */
 .snowflake {
-  position: fixed; /* śnieg nad stroną */
+  position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none;     /* nie przeszkadza w klikaniu */
+  pointer-events: none;
   font-size: 12px;
-  z-index: 999999;          /* nad wszystkim, także nad nav */
+  
+  /* Z-index niższy niż treść, ale wyższy niż tło */
+  z-index: 1;
+
   user-select: none;
+  will-change: transform;
+  color: white; /* lub usuń jeśli masz ❄ jako emoji */
 }
 
 

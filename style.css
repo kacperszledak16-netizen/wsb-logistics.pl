@@ -328,23 +328,45 @@ section:hover{
     margin: 3px 0;
   }
 }
-/* Styl przycisków */
-#lista-pracownikow .btn-profil {
-  color: #f0c040; /* żółty */
+/* Styl przycisków w tabeli */
+#lista-pracownikow .btn-profil,
+#lista-pracownikow .btn-dziennik {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 2px 4px;
+  border-radius: 6px;
   font-weight: bold;
   text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Profil – żółty */
+#lista-pracownikow .btn-profil {
+  background-color: #f0c040;
+  color: #222;
 }
 
 #lista-pracownikow .btn-profil:hover {
-  text-decoration: underline;
+  background-color: #e0b030;
+  transform: translateY(-2px);
 }
 
+/* Dziennik – zielony */
 #lista-pracownikow .btn-dziennik {
-  color: #28a745; /* zielony */
-  font-weight: bold;
-  text-decoration: none;
+  background-color: #28a745;
+  color: white;
 }
 
 #lista-pracownikow .btn-dziennik:hover {
-  text-decoration: underline;
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+/* Kliknięcie (efekt naciśnięcia) */
+#lista-pracownikow .btn-profil:active,
+#lista-pracownikow .btn-dziennik:active {
+  transform: translateY(0);
+  opacity: 0.9;
 }

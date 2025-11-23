@@ -54,8 +54,8 @@ lightbox.addEventListener("click", ()=>{
   const SNOW_COUNT = 150;
   const minSize = 12;
   const maxSize = 24;
-  const minSpeed = 1;
-  const maxSpeed = 5;
+  const minSpeed = 20;
+  const maxSpeed = 50;
 
   // wysokość całej strony
   const pageHeight = document.documentElement.scrollHeight;

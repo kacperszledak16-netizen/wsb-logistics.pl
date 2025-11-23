@@ -255,22 +255,3 @@ section:hover{
   height: 100%;
   border: 0;
 }
-/* -------------------- SNOW -------------------- */
-.snow-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none; /* nie przeszkadza w klikaniu */
-  z-index: 1;           /* pod treścią strony, nad tłem */
-}
-
-.snow-canvas.front {
-  z-index: 2;           /* warstwa przednia, ale nadal pod treścią */
-}
-
-/* Opcjonalnie ukryj na bardzo małych ekranach */
-@media (max-width: 360px) {
-  .snow-canvas { display: none; }
-}
-
-   
-

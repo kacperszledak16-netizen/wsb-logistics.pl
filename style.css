@@ -380,3 +380,36 @@ section:hover{
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   opacity: 0.95;
 }
+/* Przyciski w sekcji Modyfikacje - niebieskie */
+#modifikacje .btn-mod,
+#modifikacje a.btn-mod,
+#modyfikacje .btn-mod {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 4px 6px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    transition: all 0.2s ease;
+    background-color: #007bff; /* niebieski */
+    color: white;
+    border: 1px solid #0069d9;
+}
+
+#modifikacje .btn-mod:hover,
+#modyfikacje .btn-mod:hover {
+    background-color: #0069d9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+#modifikacje .btn-mod:active,
+#modyfikacje .btn-mod:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    opacity: 0.95;
+}

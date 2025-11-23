@@ -346,8 +346,19 @@ section:hover{
 
 /* Profil – żółty */
 #lista-pracownikow .btn-profil {
-  background-color: #f0c040;
-  color: #222;
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 2px 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  transition: all 0.2s ease;
+  background-color: #f0c040 !important;
+  color: #222 !important;
   border: 1px solid #e0b030;
 }
 
@@ -363,7 +374,23 @@ section:hover{
   color: white;
   border: 1px solid #218838;
 }
-
+/* Dziennik – zielony */
+#lista-pracownikow .btn-dziennik {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 2px 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+  transition: all 0.2s ease;
+  background-color: #28a745 !important;
+  color: white !important;
+  border: 1px solid #218838; 
+}
 #lista-pracownikow .btn-dziennik:hover {
   background-color: #218838;
   transform: translateY(-2px);

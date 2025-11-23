@@ -58,30 +58,6 @@ header p {
     margin-top: 10px;
     font-size: 19px;
 }
-/* Śnieg pod treścią, ale nad tłem */
-/* --- Snow background (two-layer canvas) --- */
-
-/* kontenery canvasa — fixed, zajmują cały viewport, pointer-events: none */
-.snow-canvas {
-  position: fixed;
-  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
-  z-index: 1;               /* pod treścią (upewnij się, że Twoja zawartość ma z-index >1 lub brak) */
-  pointer-events: none;
-  mix-blend-mode: normal;   /* możesz zmienić dla efektów */
-  opacity: 1;
-}
-
-/* przednia warstwa (bliżej użytkownika) - szybsze/wieksze płatki */
-.snow-canvas.front {
-  z-index: 2; /* wyżej niż back, ale niżej niż treść (ustaw treść >2 jeśli trzeba) */
-  opacity: 0.95;
-}
-
-/* jeśli chcesz, ukryj śnieg na bardzo małych ekranach przez CSS (opcjonalnie) */
-@media (max-width: 360px) {
-  .snow-canvas { display: none; } /* dodatkowa oszczędność baterii / CPU */
-}
-
 
 /* -------------------- NAV -------------------- */
 nav {

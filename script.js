@@ -4,12 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const slider = document.getElementById("darkmode-slider");
     const icon = slider.querySelector(".icon");
 
-    // ustawienie początkowego stanu
+    // Jeśli brak zapisu w localStorage → ustaw domyślnie dark
+    if(!localStorage.getItem("theme")){
+        localStorage.setItem("theme", "dark");
+    }
+
+    // Ustawienie motywu na podstawie zapisu
     if(localStorage.getItem("theme") === "dark"){
         document.body.classList.add("dark");
         slider.classList.add("dark");
         icon.textContent = "☀️";
         icon.style.left = "calc(100% - 22px)";
+    } else {
+        icon.textContent = "🌙";
+        icon.style.left = "2px";
     }
 
     // kliknięcie suwaka

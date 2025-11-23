@@ -328,4 +328,23 @@ section:hover{
     margin: 3px 0;
   }
 }
+/* Styl przycisków */
+#lista-pracownikow .btn-profil {
+  color: #f0c040; /* żółty */
+  font-weight: bold;
+  text-decoration: none;
+}
 
+#lista-pracownikow .btn-profil:hover {
+  text-decoration: underline;
+}
+
+#lista-pracownikow .btn-dziennik {
+  color: #28a745; /* zielony */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#lista-pracownikow .btn-dziennik:hover {
+  text-decoration: underline;
+}

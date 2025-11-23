@@ -255,3 +255,77 @@ section:hover{
   height: 100%;
   border: 0;
 }
+/* Lista pracowników - tabela */
+#lista-pracownikow {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+#lista-pracownikow h2 {
+  border-left: 6px solid #f0c040;
+  padding-left: 12px;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.table-container {
+  overflow-x: auto; /* przewijanie na małych ekranach */
+}
+
+#lista-pracownikow table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 500px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#lista-pracownikow th, 
+#lista-pracownikow td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+#lista-pracownikow th {
+  background-color: #f0c040;
+  color: #222;
+  text-align: left;
+}
+
+#lista-pracownikow tbody tr:nth-child(even) {
+  background-color: rgba(240,192,64,0.1);
+}
+
+#lista-pracownikow tbody tr:hover {
+  background-color: rgba(240,192,64,0.2);
+  transition: 0.2s;
+}
+
+#lista-pracownikow a {
+  color: #f0c040;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 5px;
+}
+
+#lista-pracownikow a:hover {
+  text-decoration: underline;
+}
+
+/* Responsywność na telefonach */
+@media (max-width: 600px){
+  #lista-pracownikow th, 
+  #lista-pracownikow td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  #lista-pracownikow a {
+    display: inline-block;
+    margin: 3px 0;
+  }
+}
+

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
 
     /* DARK MODE */
     const slider = document.getElementById("darkmode-slider");

@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>WSB Logistics - ETS2 | TrucksBook | Transport & Spedycja. Wirtualna Firma </title>
+    <title>Rekrutacja WSB Logistics - ETS2  Transport & Spedycja. Wirtualna Firma </title>
     <meta name="description" content="Dołącz do WSB Logistisc - aktywnej wirtualnej firmy ETS2 korzystającej z TruckBook. Jazdy, eventy, ranking kierowców i profesjonalna organizacja. Sprawdź szczegóły!">
-    <meta property="og:url" content="https://wsb-logistics.pl/rekrutacja/" />
-<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,6 +30,7 @@
 
     <div class="nav-links">
         <a href="index.html">Strona Główna</a>
+        <a href="apply.html">Złóż Podanie</a>
             </div>
 </nav>
 
@@ -79,9 +79,23 @@
 <div class="lightbox" id="lightbox">
     <img src="" alt="">
 </div>
-<script src="script.js"></script>
+
 <footer>
     <p>© 2025 WSB Logistics — Made by xGasparr</p>
 </footer>
+
+<script src="script.js"></script>
+<!-- Ukryty przycisk do dashboard -->
+<button id="hiddenDashboardBtn" style="display:none;" onclick="window.location.href='dashboard.html'"></button>
+
+<script>
+// Dodaj event listener do symbolu © w stopce
+document.querySelector('footer p').addEventListener('click', function(event){
+    if(event.target.textContent.includes('©')) {
+        document.getElementById('hiddenDashboardBtn').click();
+    }
+});
+</script>
+
 </body>
 </html>

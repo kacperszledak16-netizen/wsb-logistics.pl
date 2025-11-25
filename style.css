@@ -504,4 +504,32 @@ section:hover{
         height: calc(1700px * (100vw / 640)); 
     }
 }
+/* — RESPONSYWNY Google Form Embed — */
+.g-form-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.g-form-container .responsive-form {
+  position: relative;
+  width: 100%;
+  min-width: 320px; /* minimalna szerokość formularza */
+  border: none;
+}
+
+/* Jeśli chcesz, możesz ustawić wysokość w zależności od urządzenia */
+@media (min-width: 800px) {
+  .g-form-container .responsive-form {
+    height: 1700px; /* dla desktopów — oryginalna wysokość */
+  }
+}
+
+@media (max-width: 799px) {
+  .g-form-container .responsive-form {
+    height: auto;
+    min-height: 1400px; /* albo inna wartość, którą uznasz za wystarczającą */
+  }
+}
+
 

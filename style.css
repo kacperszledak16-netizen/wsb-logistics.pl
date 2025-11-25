@@ -528,7 +528,7 @@ section:hover{
 @media (max-width: 799px) {
   .g-form-container .responsive-form {
     height: auto;
-    min-height: 5000px; /* albo inna wartość, którą uznasz za wystarczającą */
+    min-height: 1400px; /* albo inna wartość, którą uznasz za wystarczającą */
   }
 }
 .google-form {
@@ -536,7 +536,18 @@ section:hover{
     height: 2000px; /* możesz dopasować */
     border: none;
 }
+/* ---- Poprawione Google Form na pełną wysokość ---- */
+.g-form-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
+.responsive-form {
+    width: 100%;
+    min-height: 2200px; /* zwiększamy, żeby całość formularza była widoczna */
+    border: none;
+}
 
 
 

@@ -58,3 +58,12 @@
     });
 
 });
+// Pobieramy pole hasła
+const passwordInput = document.getElementById("password");
+
+// Nasłuchujemy naciśnięcia klawisza
+passwordInput.addEventListener("keydown", function(event) {
+    if(event.key === "Enter") { // jeśli naciśnięto Enter
+        checkPassword();        // wywołujemy funkcję logowania
+    }
+});

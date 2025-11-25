@@ -1,4 +1,4 @@
-    /* -------------------- RESET -------------------- */
+    /* GŁÓWNE USTAWIENIA */
 * {
     margin: 0;
     padding: 0;
@@ -49,8 +49,8 @@ header h1 {
     position: relative;
     font-size: 42px;
     font-weight: 800;
-         color: inherit;       /* dziedziczy kolor nagłówka */
-    text-decoration: none; /* usuwa podkreślenie */
+         color: inherit;       
+    text-decoration: none; 
     background:  rgba(0,0,0,0.5);
     display: inline-block;
     border-radius: 10px;
@@ -66,7 +66,7 @@ header p {
 
 }
 
-/* -------------------- NAV -------------------- */
+/* nawigacja */
 nav {
     background: #333;
     padding: 14px;
@@ -99,7 +99,7 @@ nav a[href="https://discord.com/invite/BB6BjbWMB6"]:hover{color:#5865F2 !importa
 
 nav a[href="https://www.facebook.com/groups/1117368809225137/"]:hover {color:#0866FF !important;}
 
-/* -------------------- MOBILE NAV -------------------- */
+/* nawigacja rozwijana mobilna */
 .menu-toggle {
     display: none;
     background: #f0c040;
@@ -133,7 +133,7 @@ nav a[href="https://www.facebook.com/groups/1117368809225137/"]:hover {color:#08
     }
 }
 
-/* -------------------- CONTENT -------------------- */
+/* zawartość strony */
 .card {
     max-width: 1000px;
     margin: 30px auto;
@@ -150,7 +150,7 @@ h2 {
     margin-bottom: 10px;
 }
 
-/* -------------------- GALLERY -------------------- */
+/* galeria */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -168,7 +168,7 @@ h2 {
     transform: scale(1.05);
 }
 
-/* -------------------- LIGHTBOX -------------------- */
+/* lightbox - wyswietlanie zdjecia full screen */
 .lightbox {
     position: fixed;
     top:0; left:0;
@@ -193,7 +193,7 @@ h2 {
     pointer-events:auto;
 }
 
-/* -------------------- FOOTER -------------------- */
+/* stopka  */
 footer {
     background:#222;
     padding: 20px;
@@ -201,7 +201,7 @@ footer {
     text-align:center;
     margin-top: 40px;
 }
-
+/*suwak zmiany tryb ciemny/jasny*/
 #darkmode-slider {
   position: fixed;
   bottom: 20px;
@@ -237,7 +237,7 @@ footer {
 
 body.dark #darkmode-slider .icon { color: black; }
 
-  
+ /*najechanie na menu- kolory powiekszenie*/
 nav a:hover {
   transform: scale(1.2);
   transition: transform 0.3s ease;
@@ -246,7 +246,7 @@ section:hover{
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
-/* ---iframe --- */
+/* wideo */
 .video-container {
   position: relative;
   width: 100%;
@@ -323,7 +323,7 @@ section:hover{
   text-decoration: underline;
 }
 
-/* Responsywność na telefonach */
+/* Responsywność na telefonach (tabela)*/
 @media (max-width: 600px){
   #lista-pracownikow th, 
   #lista-pracownikow td {
@@ -381,7 +381,7 @@ section:hover{
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 
-/* Kliknięcie (efekt naciśnięcia) */
+/* Kliknięcie (efekt naciśnięcia lista) */
 #lista-pracownikow .btn-profil:active,
 #lista-pracownikow .btn-dziennik:active {
   transform: translateY(0);
@@ -403,11 +403,11 @@ section:hover{
     cursor: pointer;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16);
     transition: all 0.2s ease;
-    background-color: #007bff; /* niebieski */
+    background-color: #007bff; 
     color: white;
     border: 1px solid #0069d9;
 }
-
+/*efekty przy najechaniu na guzik mod*/
 #modifikacje .btn-mod:hover,
 #modyfikacje .btn-mod:hover {
     background-color: #0069d9;
@@ -421,25 +421,25 @@ section:hover{
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     opacity: 0.95;
 }
-/* RESPONSYWNY NAGŁÓWEK HERO */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 28px;
-        padding: 5px 10px;
-    }
 
-    header p {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
+/*-------REKRUTACJA-------*/
+
+
+/*siatka obrazkow do modow*/
+
+.addons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
 }
 
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 22px;
-    }
+.addons-grid img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-    header p {
-        font-size: 13px;
-    }
+.addons-grid img:hover {
+    transform: scale(1.05);
 }

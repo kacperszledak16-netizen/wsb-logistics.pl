@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Podanie WSB </title>
+    <meta name="description" content="Złóż Podanie do WSB Logistisc">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- DARK MODE BUTTON -->
+<div id="darkmode-slider">
+  <div class="icon">🌙</div>
+</div>
+
+
+<!-- HERO -->
+<header>
+    <div>
+        <h1>Formularz Zgłoszeniowy</h1>
+        <p>Aby dołączyć do firmy wypełnij formularz</p>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <button class="menu-toggle">☰ MENU</button>
+
+    <div class="nav-links">
+        <a href="index.html">Strona Główna</a>
+        <a href="recruitment.html">Rekrutacja</a>
+            </div>
+</nav>
+
+<section id="Formularz" class="card2" >
+<!-- TUTAJ WKLEJ SWÓJ KOD IFRAME Z GOOGLE FORMS -->
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1SdFdjg_UPSzd1N8G7QG_dtikOxHWpDqkegiXhM3PqJIhag/viewform?embedded=true" width="640" height="1700" frameborder="0" marginheight="0" marginwidth="0">Formularz</iframe>
+</section>
+
+<footer>
+    <p>© 2025 WSB Logistics — Made by xGasparr</p>
+</footer>
+<script src="script.js"></script>
+
+<!-- Ukryty przycisk do dashboard -->
+<button id="hiddenDashboardBtn" style="display:none;" onclick="window.location.href='dashboard.html'"></button>
+
+<script>
+// Dodaj event listener do symbolu © w stopce
+document.querySelector('footer p').addEventListener('click', function(event){
+    if(event.target.textContent.includes('©')) {
+        document.getElementById('hiddenDashboardBtn').click();
+    }
+});
+</script>
+
+
+
+</body>
+</html>

@@ -18,6 +18,7 @@ iframe { width:100%; height:600px; border:none; border-radius:5px; }
 </head>
 <body>
 
+
 <h1 style="color: #f0c040;">Panel zgłoszeń WSB </h1>
 <a href="index.html"><h1 style="color: #f0c040;">Strona Główna</h1></a>
 
@@ -29,28 +30,19 @@ iframe { width:100%; height:600px; border:none; border-radius:5px; }
 </div>
 
 <div id="sheetContainer">
-    <p id="welcomeMessage" style="text-align:center; color: white;"></p>
+    <p style="text-align:center; color: white;">Witaj adminie! Oto zgłoszenia:</p>
     <!-- Podmień link na swój arkusz Google Sheets -->
     <iframe src="https://docs.google.com/spreadsheets/d/1Mewza5Yh8fkO5w3D0GKoj1U3qVAROsLAN-BbPl8G6QM/edit?usp=sharing"></iframe>
 </div>
 
 <script>
-// lista użytkowników i ich haseł
-const users = {
-    "Beksiu86": "wsbthebest",
-    "Wujaszek Sławek": "Slawek",
-    "xGasparr": "Polski123!"
-};
+const correctPassword = "wsbthebest"; // <-- ustaw tu swoje hasło
 
-function checkPassword() {
+function checkPassword(){
     const input = document.getElementById("password").value;
-    // sprawdzamy, czy hasło pasuje do któregokolwiek użytkownika
-    const user = Object.keys(users).find(u => users[u] === input);
-    
-    if(user){
+    if(input === correctPassword){
         document.getElementById("loginContainer").style.display = "none";
         document.getElementById("sheetContainer").style.display = "block";
-        document.getElementById("welcomeMessage").innerText = `Witaj ${user}! Oto zgłoszenia:`;
     } else {
         alert("Niepoprawne hasło!");
         document.getElementById("password").value = "";
@@ -61,6 +53,8 @@ function checkPassword() {
 <footer>
     <p style="color: white;">© 2025 WSB Logistics — Made by xGasparr</p>
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>

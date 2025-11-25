@@ -460,6 +460,41 @@ section:hover{
     
     
 }
+.google-form-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
 
+.google-form-iframe {
+    width: 100%;
+    min-width: 500px; /* Google Forms wygląda dobrze przy min. 480–500px */
+    height: 1800px;
+    border: none;
 
+    /* Używamy skalowania tylko na małych ekranach */
+    transform-origin: top left;
+}
+/* ---- Google Form responsive fix ---- */
+.google-form-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.google-form-iframe {
+    width: 100%;
+    border: none;
+    height: 1700px;
+}
+
+/* skalowanie dla telefonów */
+@media (max-width: 600px) {
+    .google-form-iframe {
+        transform: scale(0.85);   /* zmniejsz formularz */
+        transform-origin: top left;
+        height: 2000px;          /* powiększ wysokość aby nie ucinało */
+        width: 118%;             /* kompensacja skalowania */
+    }
+}
 

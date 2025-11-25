@@ -443,3 +443,18 @@ section:hover{
 .addons-grid img:hover {
     transform: scale(1.05);
 }
+
+/*Formularz*/
+.card2 {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #1b1b1b;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+}

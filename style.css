@@ -528,7 +528,7 @@ section:hover{
 @media (max-width: 799px) {
   .g-form-container .responsive-form {
     height: auto;
-    min-height: 1400px; /* albo inna wartość, którą uznasz za wystarczającą */
+    min-height: 5000px; /* albo inna wartość, którą uznasz za wystarczającą */
   }
 }
 .google-form {
@@ -536,6 +536,7 @@ section:hover{
     height: 2000px; /* możesz dopasować */
     border: none;
 }
+
 
 
 

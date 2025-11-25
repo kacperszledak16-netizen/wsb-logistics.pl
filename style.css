@@ -469,13 +469,14 @@ section:hover{
 .google-form-iframe {
     width: 100%;
     min-width: 500px; /* Google Forms wygląda dobrze przy min. 480–500px */
-    height: 1800px;
+    height: 1700px;
     border: none;
 
     /* Używamy skalowania tylko na małych ekranach */
     transform-origin: top left;
 }
-/* ---- Google Form responsive fix ---- */
+/* ---- Google Form FIX (telefon pełna szerokość) ---- */
+
 .google-form-wrapper {
     width: 100%;
     overflow: hidden;
@@ -483,18 +484,24 @@ section:hover{
 }
 
 .google-form-iframe {
-    width: 100%;
     border: none;
+    width: 100%;
     height: 1700px;
 }
 
-/* skalowanie dla telefonów */
+/* TELEFONY */
 @media (max-width: 600px) {
+
+    /* obliczamy skalę: screen_width / 640 */
     .google-form-iframe {
-        transform: scale(0.85);   /* zmniejsz formularz */
+        transform: scale(calc(100vw / 640));
         transform-origin: top left;
-        height: 2000px;          /* powiększ wysokość aby nie ucinało */
-        width: 118%;             /* kompensacja skalowania */
+        width: 640px;         /* oryginalna szerokość formularza */
+        height: calc(1700px / (100vw / 640));
+    }
+
+    .google-form-wrapper {
+        height: calc(1700px * (100vw / 640)); 
     }
 }
 
